@@ -3,22 +3,23 @@
 <head>
   <meta charset="utf-8">
   <title>Baba Anagram Finder</title>
+  <script src="main.js"></script>
   <meta name="description" content="Finds anagrams for letters in baba levels.">
   <link rel="stylesheet" href="css/styles.css?v=1.0">
 </head>
-<body>
-  <script src="main.js"></script>
+<body onload="loadList()">
   <h1>Baba Anagram Finder</h1>
   <p>Leave a field blank if you don't need it. Note that this does keep track of the amount of letters - if your level can give an infinite amount, be sure to include 4.</p>
   <br><br>
   <label>Single letters in the level.</label><br><input type="text" id="letters1" placeholder="grasshot" style="width:90%"><br>
   <label>Multi letters in the level, space delimited</label><br><input type="text" id="letters2" placeholder="ba ba ba ba" style="width:90%"><br>
-  <button onclick="test()">Calculate!</button><br>
+  <button onclick="calculate()">Calculate!</button><br>
   <label>Output.</label><br>
   <textarea id="output" rows="5" style="width:90%">Your list of words will appear here after pressing the button.</textarea>
   
   <br><br>
   <label>Word List (use a double space to cause output to go onto a new line)</label><br>
-  <textarea id="words" rows="8" style="width:90%">algae arrow baba banana bat bee belt bird boat bog bolt book box brick bubble bucket bug burger cake cart cash circle cliff cloud cog crab crystal cup door dot drink dust ear eye fence fire fish flag flower fofo foliage foot fort fruit fungi fungus gate gem ghost grass hand hedge house husk husks ice it jelly jiji keke key ladder lamp lava leaf lift line lizard love me monitor moon nose orb pants pillar pipe plane planet pumpkin reed ring road robot rock rocket rose rubble seed shell shirt shovel sign skull spike sprout square star statue stick stump sun tile tower track train tree trees triangle turnip ufo vine wall water wind worm  all text level group empty not is and has eat fear follow make mimic play auto right up left down red orange yellow lime green cyan blue purple pink rosy black grey silver white brown best sad wonder broken chill defeat back fall fallright fallup fallleft nudgedown nudgeright nudgeup nudgeleft turn deturn float phantom hide hot melt more move open shut powered power pull push safe shift sink sleep still lockeddown lockedright lockedup lockedleft stop swap tele weak win word you bonus end done revert idle lonely often seldom on near facing without above below feeling cursor select  sharp flat  anni crash error never</textarea>
+  <textarea id="words" rows="9" style="width:90%"></textarea><br>
+  <button onclick="localStorage.setItem('wordlist',document.getElementById('words').value)">Save wordlist (will auto-set on refresh)</button> <button onclick="localStorage.removeItem('wordlist');loadList()">Reset saved list</button>
 </body>
 </html>
